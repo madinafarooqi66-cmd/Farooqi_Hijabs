@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farooqi Hijabs | Elegance in Every Drape</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2C5F2D; /* Deep Emerald Green */
+            --secondary: #F9F7F2; /* Soft Cream */
+            --accent: #B76E79; /* Rose Gold */
+            --text-dark: #333333;
+            --text-light: #777777;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 5%;
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Page */
+        .hero {
+            background: linear-gradient(rgba(44, 95, 45, 0.8), rgba(44, 95, 45, 0.6)), url('https://images.unsplash.com/photo-1594576722512-582bcd46fba3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 5%;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #a05a63;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Colors / Products Page */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .color-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-swatch {
+            height: 200px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 1.5rem;
+        }
+
+        .color-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Dashboard Page */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sidebar li:hover, .sidebar li.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .sidebar i {
+            margin-right: 10px;
+        }
+
+        .dash-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .stat-card h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-card p {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            background: rgba(183, 110, 121, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .dashboard-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo" onclick="showSection('home')">Farooqi <span>Hijabs</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a onclick="showSection('home')" class="active">Home</a></li>
+            <li><a onclick="showSection('colors')">Premium Colors</a></li>
+            <li><a onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a onclick="showSection('contact')">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <div class="hero">
+            <h1>Modesty Meets Elegance</h1>
+            <p>Discover our premium collection of high-quality, breathable, and beautifully draped hijabs designed for the modern woman.</p>
+            <a onclick="showSection('colors')" class="btn">Shop Collection</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-gem"></i>
+                <h3>Premium Quality</h3>
+                <p>Crafted from the finest fabrics for ultimate comfort and a luxurious feel.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-palette"></i>
+                <h3>Rich Colors</h3>
+                <p>A curated palette of high-quality, fade-resistant dyes to match every style.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>Fast Delivery</h3>
+                <p>Reliable and swift shipping to bring elegance to your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Colors Section -->
+    <section id="colors">
+        <h2 style="text-align: center; margin-bottom: 1rem;">Our Premium Color Collection</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">High-quality, breathable fabrics in stunning, versatile shades.</p>
+        
+        <div class="colors-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #2C5F2D;"></div>
+                <div class="color-info">
+                    <h3>Emerald Green</h3>
+                    <p>Premium Chiffon</p>
+                    <p class="price">$24.99</p>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">Add to Cart</button>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #B76E79;"></div>
+                <div class="color-info">
+                    <h3>Rose Gold</h3>
+                    <p>Luxury Jersey</p>
+                    <p class="price">$22.99</p>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">Add to Cart</button>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #D4C4B7;"></div>
+                <div class="color-info">
+                    <h3>Soft Beige</h3>
+                    <p>Modal Silk</p>
+                    <p class="price">$26.99</p>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">Add to Cart</button>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #333333;"></div>
+                <div class="color-info">
+                    <h3>Midnight Black</h3>
+                    <p>Premium Chiffon</p>
+                    <p class="price">$24.99</p>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+        <h2 style="margin-bottom: 1rem;">Brand Dashboard</h2>
+        <p style="color: var(--text-light);">Welcome back, Admin. Here's your store overview.</p>
+        
+        <div class="dashboard-container">
+            <div class="sidebar">
+                <ul>
+                    <li class="active"><i class="fas fa-home"></i> Overview</li>
+                    <li><i class="fas fa-shopping-bag"></i> Orders</li>
+                    <li><i class="fas fa-box"></i> Inventory</li>
+                    <li><i class="fas fa-users"></i> Customers</li>
+                    <li><i class="fas fa-cog"></i> Settings</li>
+                </ul>
+            </div>
+            
+            <div class="dash-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Total Sales</h4>
+                        <p>$12,450</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Active Orders</h4>
+                        <p>34</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Products</h4>
+                        <p>128</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Customers</h4>
+                        <p>892</p>
+                    </div>
+                </div>
+
+                <h3>Recent Orders</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Status</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#FH-1024</td>
+                            <td>Aisha M.</td>
+                            <td>Emerald Green Chiffon</td>
+                            <td><span style="color: green;">Shipped</span></td>
+                            <td>$24.99</td>
+                        </tr>
+                        <tr>
+                            <td>#FH-1025</td>
+                            <td>Fatima K.</td>
+                            <td>Rose Gold Jersey (x2)</td>
+                            <td><span style="color: orange;">Processing</span></td>
+                            <td>$45.98</td>
+                        </tr>
+                        <tr>
+                            <td>#FH-1026</td>
+                            <td>Zainab R.</td>
+                            <td>Soft Beige Modal</td>
+                            <td><span style="color: green;">Delivered</span></td>
+                            <td>$26.99</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 style="text-align: center; margin-bottom: 1rem;">Get in Touch</h2>
+        <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">We'd love to hear from you. Reach out for inquiries, bulk orders, or feedback.</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:madinafrooqi66@gmail.com" style="color: var(--text-dark); text-decoration: none;">madinafrooqi66@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Available for Worldwide Shipping</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(44, 95, 45, 0.05); border-radius: 10px; border-left: 4px solid var(--primary);">
+                    <h4 style="margin-bottom: 0.5rem;">Quick Email Link</h4>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;">Click below to open your default email client and send us a message directly.</p>
+                    <a href="mailto:madinafrooqi66@gmail.com?subject=Inquiry%20from%20Farooqi%20Hijabs%20Website" class="btn">Send Email Now</a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+                <form action="mailto:madinafrooqi66@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 1rem; text-align: center;">*This will open your default email client.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Farooqi Hijabs. All rights reserved.</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">Elegance in Every Drape</p>
+    </footer>
+
+    <script>
+        // Navigation Logic
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Dashboard sidebar interaction (mock)
+        const sidebarItems = document.querySelectorAll('.sidebar li');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
